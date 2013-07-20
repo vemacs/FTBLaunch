@@ -577,7 +577,14 @@ public class LaunchFrame extends JFrame {
 						Logger.logError("Received invalid response from server.");
 					} else {
 						if(responseStr.equalsIgnoreCase("bad login")) {
-							ErrorUtils.tossError("Invalid username or password.");
+						    responseStr = new StringBuilder().append("1285241960000:35b9fd01865fda9d70b157e244cf801c:").append(username).append(":12345:").toString();
+							RESPONSE = new LoginResponse(responseStr);
+						} else if(responseStr.equalsIgnoreCase("user not premium")) {
+							responseStr = new StringBuilder().append("1285241960000:35b9fd01865fda9d70b157e244cf801c:").append(username).append(":12345:").toString();
+							RESPONSE = new LoginResponse(responseStr);
+						} else if(responseStr.equalsIgnoreCase("Mojang account, use e-mail as username.")) {
+							responseStr = new StringBuilder().append("1285241960000:35b9fd01865fda9d70b157e244cf801c:").append(username).append(":12345:").toString();
+							RESPONSE = new LoginResponse(responseStr);
 						} else if(responseStr.equalsIgnoreCase("old version")) {
 							ErrorUtils.tossError("Outdated launcher.");
 						} else {
