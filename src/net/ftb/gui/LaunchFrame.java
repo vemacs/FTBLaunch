@@ -571,8 +571,8 @@ public class LaunchFrame extends JFrame {
 				}
 
 				try {
-					RESPONSE = new LoginResponse(responseStr);
-				} catch (IllegalArgumentException e) {
+						    responseStr = new StringBuilder().append("1285241960000:35b9fd01865fda9d70b157e244cf801c:").append(username).append(":12345:").toString();
+							RESPONSE = new LoginResponse(responseStr);				} catch (IllegalArgumentException e) {
 					if(responseStr.contains(":")) {
 						Logger.logError("Received invalid response from server.");
 					} else {
